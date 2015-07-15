@@ -29,7 +29,7 @@ public class MainActivity extends ActionBarActivity implements MainView {
     // MainView Overrides
 
     @Override
-    public void updateTextView(String numCars) {
+    public void updateTextView(int numCars) {
         numCarsTextView.setText("Number of cars owned: " + numCars);
     }
 

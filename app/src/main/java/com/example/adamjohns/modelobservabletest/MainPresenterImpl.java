@@ -15,7 +15,7 @@ public class MainPresenterImpl implements MainPresenter {
         Subscriber<Garage> garageSubscriber = initSubscriber();
 
         Garage.garageStream
-            .subscribeOn(Schedulers.immediate())
+            .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(garageSubscriber);
     }
@@ -43,7 +43,7 @@ public class MainPresenterImpl implements MainPresenter {
 
             @Override
             public void onNext(Garage garage) {
-                mainView.updateTextView("" + garage.getNumCars());
+                mainView.updateTextView(garage.getNumCars());
             }
         };
     }
